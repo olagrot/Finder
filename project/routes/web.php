@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RiddleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::resource('/riddles', RiddleController::class);
+Route::get('/riddles/page/{noPage}', [RiddleController::class, 'page'])->name('riddles.page');
+Route::post('/riddles/random', [RiddleController::class, 'random'])->name('riddles.random');
+Route::post('/riddles/filter', [RiddleController::class, 'filter'])->name('riddles.filter');
