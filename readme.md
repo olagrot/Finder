@@ -46,3 +46,8 @@ Zasady Savoir-vivre:
 12. JS to g$wno		# TODO: remove
 13. Do każdego taska (Naturalnie, o ile ma to sens, wszak winszuję testującym CSSy) robimy od razu unit testy
 14. Deploy w piątek jest wręcz wskazany. Gdybyśmy kiedyś mieli to deployować. God please no.
+
+Gwara:
+1. Do nazw zmiennych, plików, pól i metod klasy używamy camelCase (np. isPies, czyWybranoPsa)
+2. Z kolei klasy nazywamy zgodnie z zasadami PascalCase (np. PiesPasazerPociagu, KontrolerBiletowKoleiMiedzymiastowej)
+3. Dla stałych, lub zwykłych zmiennych, których z różnych powodów nie możemy zadeklarować jako stałe, ale tak mają być używane, używajmy CAPSA i snake_case (np. WYMAGANA_DZIENNA_ILOSC_WYKOLEJEN)
