@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Helpers\HasEnsure;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserProfile;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -42,15 +43,23 @@ class RegisteredUserController extends Controller
 
         $password = $this->ensureIsString($request->password);
 
-        $user = User::create([
+        $userId = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($password),
+        ])->id;
+
+        $user = User::find($userId);
+
+        UserProfile::create([
+            'name' => $request->name,
+            'user_id' => $userId,
         ]);
+        if ($user instanceof \Illuminate\Contracts\Auth\Authenticatable) {
+            event(new Registered($user));
 
-        event(new Registered($user));
-
-        Auth::login($user);
+            Auth::login($user);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }

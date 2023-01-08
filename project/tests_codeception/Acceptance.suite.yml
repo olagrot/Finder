@@ -16,4 +16,5 @@ modules:
             populate: true
             cleanup: true
             dump: tests_codeception/_data/dump.sql
+        - Asserts
 step_decorators: ~
