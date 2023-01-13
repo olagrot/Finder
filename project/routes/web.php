@@ -37,3 +37,4 @@ Route::resource('/riddles', RiddleController::class);
 Route::get('/riddles/page/{noPage}', [RiddleController::class, 'page'])->name('riddles.page');
 Route::post('/riddles/random', [RiddleController::class, 'random'])->name('riddles.random');
 Route::post('/riddles/filter', [RiddleController::class, 'filter'])->name('riddles.filter');
+Route::post('/riddles/answer', [RiddleController::class, 'answer'])->name('riddles.answer');

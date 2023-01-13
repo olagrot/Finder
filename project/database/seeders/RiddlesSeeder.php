@@ -25,7 +25,7 @@ class RiddlesSeeder extends Seeder
             'category' => 'cyfry i liczby',
             'title' => 'Za siedmioma cyframi',
             'question' => 'Jaka jest najmniejsza liczba całkowita dodatnia równa siedmiokrotności sumy jej cyfr?',
-            'answer' => 'N/A',
+            'answer' => '21',
         ]);
 
         Riddle::create([

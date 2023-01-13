@@ -24,6 +24,8 @@ class UserProfilesSeeder extends Seeder
                 'surname' => 'Drugi',
                 'favourite_number' => 2137,
                 'favourite_function' => 'printf',
+                'points' => 2,
+                'solved_riddles' => "1,3,",
                 'user_id' => $seededUserId
             ]);
         }

@@ -1,5 +1,4 @@
 <x-guest-layout>
-    {{-- adapted from resources/views/components/auth-card.blade.php --}}
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <div>
             <h1 class="mb-4">Zagadki</h1>
@@ -17,29 +16,36 @@
             <div>
                 <form method="post" action={{route("riddles.filter")}}>
                     @csrf
-                    <select name="category">
-                        <option @if($selected == "all")selected="selected" @endif value="all">wszystkie kategorie
-                        </option>
-                        @foreach($categories as $category)
-                            <option value="{{$category}}"
-                                    @if($selected == $category) selected="selected" @endif>{{$category}}</option>
-                        @endforeach
-                    </select>
+                    <div class="flex flex-nowrap sm:justify-center items-center space-x-3">
 
-                    <x-primary-button id="riddles-filter" class="ml-3">
-                        {{ __('Filtruj') }}
-                    </x-primary-button>
+                        @auth
+                            <x-input-label for="answeredBoxValue" :value="__('Tylko nierozwiązane')"/>
+                            <input id="answeredBoxValue" class="ml-3" type="checkbox" name="answeredBoxValue" @if($isAnsweredChecked) checked @endif />
+                        @endauth
+
+                        <select name="category" class="ml-3">
+                            <option @if($selected == "all")selected="selected" @endif value="all">wszystkie kategorie
+                            </option>
+                            @foreach($categories as $category)
+                                <option value="{{$category}}"
+                                        @if($selected == $category) selected="selected" @endif>{{$category}}</option>
+                            @endforeach
+                        </select>
+
+                        <x-primary-button id="riddles-filter" class="ml-3">
+                            {{ __('Filtruj') }}
+                        </x-primary-button>
+                    </div>
                 </form>
             </div>
 
         </div>
         <div class="w-full sm:max-w-2xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            {{-- created based on https://flowbite.com/docs/typography/lists/ --}}
             <dl class="max-w-2xl text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
                 @foreach($riddles as $riddle)
                     <div class="flex flex-col pb-3 riddle">
                         <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                            <a href="{{ route('riddles.show', $riddle) }}">{{ $riddle->title }}</a>
+                            <a href="{{ route('riddles.show', $riddle) }}">@if(in_array($riddle->id, $answered)) <span class="text-green-700">✓</span> @endif {{ $riddle->title }}</a>
                         </dt>
                         <dd class="text-lg font-semibold">
                             @markdown($riddle->question)

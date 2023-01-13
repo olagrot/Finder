@@ -21,6 +21,7 @@ return new class () extends Migration {
             $table->string('favourite_function')->nullable();
             $table->string('description', 1023)->nullable();
             $table->integer('points')->default(0);
+            $table->string('solved_riddles')->default("");
             $table->integer("league")->default(0);
             $table->timestamps();
         });
