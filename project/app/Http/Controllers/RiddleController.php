@@ -42,7 +42,10 @@ class RiddleController extends Controller
                 return back()->withErrors(['riddle' => "Zła odpowiedź!"]);
             }
 
-            $profile->points = $profile->points + 1;
+            $solvedCount = $profile->points + 1;
+
+            $profile->league = $this->getNewLeague($solvedCount);
+            $profile->points = $solvedCount;
             $profile->solved_riddles = $profile->solved_riddles . $request->riddleId . ",";
             $profile->save();
 
@@ -121,5 +124,11 @@ class RiddleController extends Controller
             }
         }
         return [];
+    }
+
+    private function getNewLeague(int $solvedCount): int
+    {
+        $riddlesCount = count(Riddle::all());
+        return (int)(($solvedCount / $riddlesCount) * 5);
     }
 }

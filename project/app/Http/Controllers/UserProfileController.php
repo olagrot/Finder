@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\HasEnsure;
+use App\Helpers\LeagueHelper;
 use App\Http\Requests\UserProfileUpdateRequest;
 use App\Models\User;
 use App\Models\UserProfile;
@@ -27,12 +28,13 @@ class UserProfileController extends Controller
         $profile = $user->profile;
         $path = "assets/profileImages/image_" . $user->id . ".jpg";
 
-        if (!$profile) {
+        if (!$profile instanceof UserProfile) {
             return Redirect::route('login');
         }
         return view('dashboard', [
             'userProfile' => $profile,
-            'profileImagePath' => $path
+            'profileImagePath' => $path,
+            'userLeague' => LeagueHelper::getLeague($profile->league)
         ]);
     }
 
@@ -46,9 +48,13 @@ class UserProfileController extends Controller
         $path = "assets/profileImages/image_" . $user->id . ".jpg";
         $profile = $user->profile;
 
+        if (!$profile instanceof UserProfile) {
+            return Redirect::route('login');
+        }
         return view('user.user', [
             'userProfile' => $profile,
-            'profileImagePath' => $path
+            'profileImagePath' => $path,
+            'userLeague' => LeagueHelper::getLeague($profile->league)
         ]);
     }
     /**
