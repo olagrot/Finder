@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiddleController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\MatchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::patch('/userProfile', [UserProfileController::class, 'update'])->name('userProfile.update');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/match/find', [MatchController::class, 'find_match'])->name('match.find');
+    Route::get('/match/show', [MatchController::class, 'show_matches'])->name('match.show');
+    Route::post('/match/accept', [MatchController::class, 'accept_match'])->name('match.accept');
+    Route::post('/match/deny', [MatchController::class, 'deny_match'])->name('match.deny');
 });
 
 require __DIR__.'/auth.php';

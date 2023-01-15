@@ -29,5 +29,47 @@ class UserProfilesSeeder extends Seeder
                 'user_id' => $seededUserId
             ]);
         }
+        /**
+         * @var User $seededUser
+         */
+        $seededUser = DB::table('users')->select(['id'])->where('email', 'tim.doe@gmail.com')->first();
+        $seededUserId = $seededUser->id;
+        if ($seededUserId) {
+            DB::table('user_profiles')->insert([
+                'name' => 'Tim',
+                'surname' => 'Burton',
+                'favourite_number' => 45,
+                'favourite_function' => "Euler's function",
+                'user_id' => $seededUserId
+            ]);
+        }
+        /**
+         * @var User $seededUser
+         */
+        $seededUser = DB::table('users')->select(['id'])->where('email', 'elonora.doe@gmail.com')->first();
+        $seededUserId = $seededUser->id;
+        if ($seededUserId) {
+            DB::table('user_profiles')->insert([
+                'name' => 'Elenora',
+                'surname' => 'asd',
+                'favourite_number' => 11,
+                'favourite_function' => "Riemann's dzeta function",
+                'user_id' => $seededUserId
+            ]);
+        }
+        /**
+         * @var User $seededUser
+         */
+        $seededUser = DB::table('users')->select(['id'])->where('email', 'anne.doe@gmail.com')->first();
+        $seededUserId = $seededUser->id;
+        if ($seededUserId) {
+            DB::table('user_profiles')->insert([
+                'name' => 'Anne',
+                'surname' => 'Mercedes',
+                'favourite_number' => 12,
+                'favourite_function' => 'birthday',
+                'user_id' => $seededUserId
+            ]);
+        }
     }
 }
