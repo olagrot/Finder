@@ -8,14 +8,11 @@ class Test00_HomepageCest
 {
     public function homepageTest(AcceptanceTester $I): void
     {
-        $I->wantTo('see Laravel links on homepage');
+        $I->wantTo('Test homepage');
 
         $I->amOnPage('/');
 
         $I->seeInTitle('Finder');
-//
-//        $I->seeLink("Documentation", "https://laravel.com/docs");
-//        $I->seeLink("Laracasts", "https://laracasts.com");
-//        $I->seeLink("Forge", "https://forge.laravel.com");
+
     }
 }

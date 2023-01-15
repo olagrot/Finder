@@ -41,8 +41,7 @@
                             </div>
                             <div class="flex items-center justify-center mt-8 mb-6">
                                 <a href="{{ route('login') }}">
-                                <img src="https://www.99worksheets.com/wp-content/uploads/2021/01/matching__shapes_worksheet_7.jpg" alt="Logo" style="height: 400px; width: 300px;">
-                                </a>
+                                    <img src="{{asset('assets/para.jpg')}}" alt="Logo" style="height: 460px; width: 500px;">                                </a>
                             </div>
                         </div>
 
@@ -52,7 +51,7 @@
                             </div>
                             <div class="flex items-center justify-center mt-8 mb-6">
                                 <a href="{{ route('riddles.index') }}">
-                                        <img src="{{asset('assets/zagadki.jpg')}}" alt="Logo" style="height: 288px; width: 518px;">
+                                        <img src="{{asset('assets/zagadki.jpg')}}" alt="Logo" style="height: 460px; width: 500px;">
                                     </a>
                                 </a>
                             </div>
