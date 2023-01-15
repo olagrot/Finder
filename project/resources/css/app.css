@@ -4,7 +4,8 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: #ffbec1;
+ /*   background-color: #ffbec1;*/
+    background-image: url("https://img.freepik.com/free-vector/blurred-valentine-s-day-wallpaper_23-2148819570.jpg?w=2000");
 }
 
 .buttom{
@@ -15,5 +16,10 @@ body {
 }
 
 .bg-pink{
-    background-color: #ffbec1;
+    background-image: url("https://img.freepik.com/free-vector/blurred-valentine-s-day-wallpaper_23-2148819570.jpg?w=2000");
+}
+
+.text-main{
+    font-size: 30px;
+    color: #ffbec1;
 }

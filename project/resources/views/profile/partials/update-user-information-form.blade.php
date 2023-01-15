@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-white">
             {{ __('Informacje użytkownika') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-white">
             {{ __("Zmień dane logowania użytkownika.") }}
         </p>
     </header>
@@ -17,16 +17,16 @@
         @csrf
         @method('patch')
 
-        <div>
-            <x-input-label for="name" :value="__('Nazwa konta')" />
+        <div class="text-gray-900">
+            <x-input-label class="text-white" for="name" :value="__('Nazwa konta')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-error  class="mt-2" :messages="$errors->get('name')" />
         </div>
 
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
+        <div class="text-gray-900">
+            <x-input-label class="text-white" for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="email" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+            <x-input-error class="text-white" class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>

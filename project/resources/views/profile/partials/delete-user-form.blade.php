@@ -1,10 +1,10 @@
 <section class="space-y-6">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-white">
             {{ __('Usuń konto') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-white">
             {{ __('Usunięcie konta to bilet w jedną stronę - danych konta nie będzie można odzyskać') }}
         </p>
     </header>
@@ -25,7 +25,7 @@
                 {{ __('Usunięcie konta wymaże wszystkie dane z nim powiązane. W celu potwierdzenia wprowadź hasło.') }}
             </p>
 
-            <div class="mt-6">
+            <div class="mt-6 text-gray-900">
                 <x-input-label for="password" value="Password" class="sr-only" />
 
                 <x-text-input

@@ -9,7 +9,7 @@
     <div class="min-h-screen flex flex-col items-center pt-8 py-4 rounded-md">
         <div class=" w-full sm:max-w-2xl mt-6 px-6 py-4 bg-gray-900 text-white  shadow-md overflow-hidden sm:rounded-lg">
             @if($match)
-                <div class="p-4 d-flex flex flex-col items-center space-y-4 mt-5">
+                <div class="p-4 d-flex flex flex-col items-center space-y-4">
                     <h1 class="justify-center">Znaleziono matematyka!</h1>
                     <h2>{{$match->profile->name}}</h2>
                     <h2>{{$match->profile->surname}}</h2>

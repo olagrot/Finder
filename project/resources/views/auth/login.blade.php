@@ -51,12 +51,14 @@
                 </x-primary-button>
             </div>
 
+            <hr class="mt-6">
+
             <div class="flex items-center justify-center mt-4">
                     <h3 class="text-gray-600">Nie masz jeszcze konta?</h3>
             </div>
 
             <div class="flex items-center justify-center mt-3">
-                <x-primary-button class="ml-3" id="login-button">
+                <x-primary-button id="login-button">
                     <a href="{{ route('register') }}"  >Utworz konto</a>
                 </x-primary-button>
             </div>

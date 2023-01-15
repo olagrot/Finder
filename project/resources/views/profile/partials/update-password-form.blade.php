@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-white">
             {{ __('Zmień hasło') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-white">
             {{ __('Pamiętaj o tym, by hasło było bezpieczne.') }}
         </p>
     </header>
@@ -13,22 +13,22 @@
         @csrf
         @method('put')
 
-        <div>
-            <x-input-label for="current_password" :value="__('Obecne hasło')" />
+        <div class="text-gray-900">
+            <x-input-label class="text-white" for="current_password" :value="__('Obecne hasło')" />
             <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+            <x-input-error class="text-white" :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
         </div>
 
-        <div>
-            <x-input-label for="password" :value="__('Nowe hasło')" />
+        <div class="text-gray-900">
+            <x-input-label class="text-white" for="password" :value="__('Nowe hasło')" />
             <x-text-input id="password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+            <x-input-error class="text-white" :messages="$errors->updatePassword->get('password')" class="mt-2" />
         </div>
 
-        <div>
-            <x-input-label for="password_confirmation" :value="__('Potwierdź nowe hasło')" />
+        <div class="text-gray-900">
+            <x-input-label class="text-white" for="password_confirmation" :value="__('Potwierdź nowe hasło')" />
             <x-text-input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+            <x-input-error class="text-white" :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
         </div>
 
         <div class="flex items-center gap-4">

@@ -33,11 +33,11 @@
                     <h1 class="text-gray-900 dark:text-white text-s60 ml-2"> &#x3A6;<strong>NDER</strong></h1>
                 </div>
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                <div class="mt-8 bg-gray-900 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">
                             <div class="flex items-center justify-center">
-                                <h3 style="font-size: 30px; color: #ffbec1; padding-left: 40px">Znajdz swoja pare!</h3>
+                                <h3 class="text-main">Znajdz swoja pare!</h3>
                             </div>
                             <div class="flex items-center justify-center mt-8 mb-6">
                                 <a href="{{ route('login') }}">
@@ -48,7 +48,7 @@
 
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                             <div class="flex items-center justify-center">
-                                <h3 style="font-size: 30px; color: #ffbec1; padding-left: 40px">Rozwiaz zagadke!</h3>
+                                <h3 class="text-main">Rozwiaz zagadke!</h3>
                             </div>
                             <div class="flex items-center justify-center mt-8 mb-6">
                                 <a href="{{ route('riddles.index') }}">
