@@ -12,10 +12,10 @@ class Test00_HomepageCest
 
         $I->amOnPage('/');
 
-        $I->seeInTitle('Laravel');
-
-        $I->seeLink("Documentation", "https://laravel.com/docs");
-        $I->seeLink("Laracasts", "https://laracasts.com");
-        $I->seeLink("Forge", "https://forge.laravel.com");
+        $I->seeInTitle('Finder');
+//
+//        $I->seeLink("Documentation", "https://laravel.com/docs");
+//        $I->seeLink("Laracasts", "https://laracasts.com");
+//        $I->seeLink("Forge", "https://forge.laravel.com");
     }
 }

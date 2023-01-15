@@ -1,3 +1,19 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #ffbec1;
+}
+
+.buttom{
+    font-size: 20px;
+    padding: 10px 30px;
+    background-color: #fff3f4;
+    border-radius: 20px;
+}
+
+.bg-pink{
+    background-color: #ffbec1;
+}

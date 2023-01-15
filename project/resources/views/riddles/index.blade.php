@@ -1,5 +1,15 @@
 <x-guest-layout>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    @auth
+        @include('layouts.navigation')
+    @endauth
+    @guest
+        <div class="flex justify-center items-center">
+            <a href="/">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Simple_4-quadrant_heart_curve.svg/625px-Simple_4-quadrant_heart_curve.svg.png?20140731081052" height="100px" width="120px" class="pt-4">
+             </a>
+        </div>
+    @endguest
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         <div>
             <h1 class="mb-4">Zagadki</h1>
         </div>
@@ -40,7 +50,7 @@
             </div>
 
         </div>
-        <div class="w-full sm:max-w-2xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <div class="w-full sm:max-w-2xl mt-6 px-6 py-4 bg-gray-900  shadow-md overflow-hidden sm:rounded-lg">
             <dl class="max-w-2xl text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
                 @foreach($riddles as $riddle)
                     <div class="flex flex-col pb-3 riddle">

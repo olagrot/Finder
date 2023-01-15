@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Simple_4-quadrant_heart_curve.svg/625px-Simple_4-quadrant_heart_curve.svg.png?20140731081052" height="120px" width="150px">
             </a>
         </x-slot>
 
@@ -21,7 +21,7 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+                <x-input-label for="password" :value="__('Haslo')" />
 
                 <x-text-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -35,19 +35,29 @@
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Zapamietaj mnie') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                        {{ __('Zapomniales hasla?') }}
                     </a>
                 @endif
 
                 <x-primary-button class="ml-3" id="login-button">
-                    {{ __('Log in') }}
+                    {{ __('Zaloguj sie') }}
+                </x-primary-button>
+            </div>
+
+            <div class="flex items-center justify-center mt-4">
+                    <h3 class="text-gray-600">Nie masz jeszcze konta?</h3>
+            </div>
+
+            <div class="flex items-center justify-center mt-3">
+                <x-primary-button class="ml-3" id="login-button">
+                    <a href="{{ route('register') }}"  >Utworz konto</a>
                 </x-primary-button>
             </div>
         </form>
