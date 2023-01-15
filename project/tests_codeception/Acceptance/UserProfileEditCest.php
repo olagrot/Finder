@@ -2,15 +2,13 @@
 
 namespace TestsCodeception\Acceptance;
 
-use App\Models\User;
-use App\Models\UserProfile;
 use TestsCodeception\Support\AcceptanceTester;
 
-class UserProfileCest
+class UserProfileEditCest
 {
-    public function userProfileTest(AcceptanceTester $I): void
+    public function userProfileEditTest(AcceptanceTester $I): void
     {
-        $I->wantTo('see hidden content after login');
+        $I->wantTo('Check if user profile is saved after edit');
 
         $I->amOnPage("/login");
 
@@ -22,26 +20,37 @@ class UserProfileCest
         $I->seeCurrentUrlEquals("/dashboard");
         $I->amOnPage("/profile");
 
+        $I->fillField("name", "James");
+        $I->fillField("surname", "Potter");
+        $I->fillField("favourite_number", 420);
+        $I->fillField("favourite_function", "uselessness");
+        $I->fillField("description", "Alkohol?");
+
+        $I->click("#user-profile-save");
+
+
         $name = $I->grabValueFrom("#user-name");
-        if ($name != "Jan Paweł") {
+        if ($name != "James") {
             $I->fail("Wrong user name found");
         }
 
         $surname = $I->grabValueFrom("#user-surname");
-        if ($surname != "Drugi") {
+        if ($surname != "Potter") {
             $I->fail("Wrong user surname found");
         }
 
         $favouriteNumber = $I->grabValueFrom("#user-favourite-number");
-        if ($favouriteNumber != 2137) {
+        if ($favouriteNumber != 420) {
             $I->fail("Wrong user favourite number found");
         }
+
         $favouriteFunction = $I->grabValueFrom("#user-favourite-function");
-        if ($favouriteFunction != "printf") {
+        if ($favouriteFunction != "uselessness") {
             $I->fail("Wrong user favourite function found");
         }
+
         $description = $I->grabValueFrom("#user-description");
-        if ($description != "Lubię chleb i pociągi i moją mamę Magdę też lubię i masło orzechowe.") {
+        if ($description != "Alkohol?") {
             $I->fail("Wrong user description found");
         }
     }

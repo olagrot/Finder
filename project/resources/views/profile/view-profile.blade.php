@@ -18,6 +18,11 @@
                         <div>
                             <img class="max-w-300 max-h-300" src="{{asset($profileImagePath)}}">
                         </div>
+                        @else
+                        <div class="text-center">
+                            <div>Dodaj swoje zdjęcie profilowe w ustawieniach!</div>
+                            <img class="mt-8" src="{{asset("assets/profileImages/image_default.jpg")}}">
+                        </div>
                         @endif
                     </div>
                 </div>

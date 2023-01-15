@@ -26,6 +26,8 @@ class UserProfilesSeeder extends Seeder
                 'favourite_function' => 'printf',
                 'points' => 2,
                 'solved_riddles' => "1,3,",
+                'description' => "Lubię chleb i pociągi i moją mamę Magdę też lubię i masło orzechowe.",
+                'sex' => 'Mężczyzna',
                 'user_id' => $seededUserId
             ]);
         }

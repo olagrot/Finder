@@ -33,6 +33,16 @@
         </div>
 
         <div>
+            <x-input-label for="sex" :value="__('Płeć')" />
+            <select name="sex" class="ml-3">
+                <option value="Mężczyzna">Mężczyzna</option>
+                <option value="Kobieta" @if($userProfile->sex == "Kobieta") selected="selected" @endif>Kobieta</option>
+                <option value="Śmigłowiec bojowy" @if($userProfile->sex == "Śmigłowiec bojowy") selected="selected" @endif>Śmigłowiec bojowy</option>
+                <option value="Inna" @if($userProfile->sex == "Inna") selected="selected" @endif>Inna</option>
+            </select>
+        </div>
+
+        <div>
             <x-input-label for="description" :value="__('Twój opis')" />
             <textarea id="user-description" name="description" form="user-profile-form"
                       class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full mt-1 h-120 w-full block">{{$userProfile->description ?? ""}}</textarea>
@@ -46,10 +56,14 @@
         <div>
             <img src="{{asset($profileImagePath)}}">
         </div>
+        @else
+        <div>
+            <img src="{{asset("assets/profileImages/image_default.jpg")}}">
+        </div>
         @endif
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Zapisz') }}</x-primary-button>
+            <x-primary-button id="user-profile-save">{{ __('Zapisz') }}</x-primary-button>
 
             @if (session('status') === 'userProfile-updated')
                 <p

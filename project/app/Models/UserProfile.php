@@ -20,6 +20,7 @@ class UserProfile extends Model
         'surname',
         'favourite_number',
         'favourite_function',
-        'description'
+        'description',
+        'sex'
     ];
 }

@@ -26,6 +26,7 @@ class UserProfileUpdateRequest extends FormRequest
             'favourite_number' => ['int', 'nullable'],
             'favourite_function' => ['string', 'max:255', 'nullable'],
             'description' => ['string', 'max:1023', 'nullable'],
+            'sex' => ['string', 'max:255'],
         ];
     }
 }
