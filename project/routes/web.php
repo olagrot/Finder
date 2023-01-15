@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/match/show', [MatchController::class, 'show_matches'])->name('match.show');
     Route::post('/match/accept', [MatchController::class, 'accept_match'])->name('match.accept');
     Route::post('/match/deny', [MatchController::class, 'deny_match'])->name('match.deny');
-    Route::get('/match/notification', [MatchController::class, 'notify'])->name('match.notification');:
+    Route::get('/match/notification', [MatchController::class, 'notify'])->name('match.notification');
     Route::post('/match/filter', [MatchController::class, 'apply_filters'])->name('match.filter');
 });
 

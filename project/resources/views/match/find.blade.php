@@ -12,19 +12,19 @@
             <div class="flex flex-col justify-center mx-3">
                 <label>Płeć</label>
                 <select name="sex">
-                    <option value="all">Dowolna</option>
-                    <option value="Mężczyzna">Mężczyzna</option>
-                    <option value="Kobieta">Kobieta</option>
+                    <option value="all" {{$sex=="all"? 'selected': '' }}>Dowolna</option>
+                    <option value="Mężczyzna" {{$sex=="Mężczyzna"? 'selected': '' }}>Mężczyzna</option>
+                    <option value="Kobieta" {{$sex=="Kobieta"? 'selected': '' }}>Kobieta</option>
                 </select>
             </div>
             <div class="flex flex-col bg-white rounded justify-center mx-3">
                 <label class="">Minimalna liga</label>
                 <select name="league">
-                    <option value="0">{{App\Helpers\LeagueHelper::getLeague(0)}}</option>
-                    <option value="1">{{App\Helpers\LeagueHelper::getLeague(1)}}</option>
-                    <option value="2">{{App\Helpers\LeagueHelper::getLeague(2)}}</option>
-                    <option value="3">{{App\Helpers\LeagueHelper::getLeague(3)}}</option>
-                    <option value="4">{{App\Helpers\LeagueHelper::getLeague(4)}}</option>
+                    <option value="0" {{$minLeague==0? 'selected': '' }}>{{App\Helpers\LeagueHelper::getLeague(0)}}</option>
+                    <option value="1" {{$minLeague==1? 'selected': '' }}>{{App\Helpers\LeagueHelper::getLeague(1)}}</option>
+                    <option value="2" {{$minLeague==2? 'selected': '' }}>{{App\Helpers\LeagueHelper::getLeague(2)}}</option>
+                    <option value="3" {{$minLeague==3? 'selected': '' }}>{{App\Helpers\LeagueHelper::getLeague(3)}}</option>
+                    <option value="4" {{$minLeague==4? 'selected': '' }}>{{App\Helpers\LeagueHelper::getLeague(4)}}</option>
                 </select>
             </div>
             <button type="submit" name="filter" class="bg-blue-800 py-1 px-5 mx-2 rounded text-white flex-grow-0">Filtruj</button>

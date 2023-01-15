@@ -47,18 +47,18 @@ class MatchController
         $match = null;
         $score = INF;
 
-        $minLeague = Session::get('min_league');
-        $sex = Session::get('sex');
+        $minLeague = Session::get('min_league')?? 0;
+        $sex = Session::get('sex')?? 'all';
         foreach ($users as $matchCandidate) {
             $candidateProfile = $matchCandidate->profile;
             $userProfile = $user->profile;
             if (!($candidateProfile instanceof UserProfile) || !($userProfile instanceof UserProfile)) {
                 continue;
             }
-            if ($sex && $sex != 'all' && $candidateProfile->sex != $sex) {
+            if ($sex != 'all' && $candidateProfile->sex != $sex) {
                 continue;
             }
-            if ($minLeague && $candidateProfile->league < $minLeague) {
+            if ($candidateProfile->league < $minLeague) {
                 continue;
             }
             if ($matchCandidate->id != $user->id && !in_array($matchCandidate->id, $alreadyMatched)) {
@@ -69,7 +69,7 @@ class MatchController
                 }
             }
         }
-        return view('match.find', ['match' => $match]);
+        return view('match.find', ['match' => $match, 'sex' => $sex, 'minLeague' => $minLeague]);
     }
     public function show_matches(): View
     {
