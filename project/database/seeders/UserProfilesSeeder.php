@@ -42,6 +42,10 @@ class UserProfilesSeeder extends Seeder
                 'surname' => 'Burton',
                 'favourite_number' => 45,
                 'favourite_function' => "Euler's function",
+                'points' => 1,
+                'solved_riddles' => "3,",
+                'description' => "Gorący matematyk z twojej okolicy ;)",
+                'sex' => 'Mężczyzna',
                 'user_id' => $seededUserId
             ]);
         }
@@ -56,6 +60,10 @@ class UserProfilesSeeder extends Seeder
                 'surname' => 'asd',
                 'favourite_number' => 11,
                 'favourite_function' => "Riemann's dzeta function",
+                'points' => 0,
+                'solved_riddles' => "",
+                'description' => "Błyskotliwa, szczególnie interesuję się analizą funckjonalną",
+                'sex' => 'Kobieta',
                 'user_id' => $seededUserId
             ]);
         }
@@ -70,6 +78,10 @@ class UserProfilesSeeder extends Seeder
                 'surname' => 'Mercedes',
                 'favourite_number' => 12,
                 'favourite_function' => 'birthday',
+                'points' => 0,
+                'solved_riddles' => "",
+                'description' => "Kubek i pączek to to samo",
+                'sex' => 'Kobieta',
                 'user_id' => $seededUserId
             ]);
         }

@@ -17,6 +17,7 @@ return new class () extends Migration {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('match_id');
             $table->boolean('accepted');
+            $table->timestamps();
         });
     }
 

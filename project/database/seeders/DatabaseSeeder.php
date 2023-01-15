@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RiddlesSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(UserProfilesSeeder::class);
+        $this->call(MatchHistorySeeder::class);
     }
 }

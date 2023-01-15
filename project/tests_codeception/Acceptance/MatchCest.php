@@ -22,22 +22,51 @@ class MatchCest
         $I->fillField("password", "secret");
 
         $I->click("login-button");
+
+        $I->wantTo('test if filters are working');
+        $I->amOnPage('/match/find');
+        $I->see('Znaleziono matematyka!');
+        $I->see('Tim');
+
+        $I->selectOption('sex', 'Kobieta');
+        $I->click('filter');
+
+        $I->amOnPage('/match/find');
+        $I->see('Znaleziono matematyka!');
+        $I->see('Anne');
+
+        $I->selectOption('league', '3');
+        $I->click('filter');
+
+        $I->amOnPage('/match/find');
+        $I->see('Niestety nie znaleziono nikogo spełniającego twoje wymagania');
+
+        $I->selectOption('sex', 'all');
+        $I->selectOption('league', '0');
+        $I->click('filter');
+
+        $I->wantTo('test if wrong match want be activated');
         $I->amOnPage('/match/find');
         $I->see('Znaleziono matematyka!');
         $I->see('Tim');
         $I->click('accept');
+
+        $I->wantTo('See match notification');
+        $I->amOnPage('/match/find');
         $I->see('Znaleziono matematyka!');
         $I->see('Anne');
         $I->click('accept');
-        $I->see('Znaleziono matematyka!');
-        $I->see('Elenora');
-        $I->click('deny');
-        $I->see('Niestety nie znaleziono nikogo spełniającego twoje wymagania');
 
-        $I->wantTo('Check if program will not show matches prematurely');
+        $I->amOnPage('/match/notification');
+        $I->see('Znaleziono parę!');
+        $I->see('Przejdź do listy znalezionych par');
+        $I->see('Szukaj dalej');
+        $I->click('#go-to-pairs');
+
         $I->amOnPage('/match/show');
         $I->dontSee('Tim');
-        $I->dontSee('Anne');
+        $I->See('Anne Mercedes');
+        $I->See('anne.doe@gmail.com');
         $I->dontSee('Elenora');
     }
 }

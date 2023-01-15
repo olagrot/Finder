@@ -70,4 +70,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(MatchPair::class, 'match_id');
     }
+    public function imagePath(): string
+    {
+        return "assets/profileImages/image_" . $this->id . ".jpg";
+    }
 }

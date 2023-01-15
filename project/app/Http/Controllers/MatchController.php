@@ -8,10 +8,25 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 class MatchController
 {
+    public function apply_filters(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'sex' => 'required|string',
+            'league' => 'required|int|min:0|max:4'
+        ]);
+        $sex = $request->input('sex');
+        $league = intval($request->input('league'));
+        if (in_array($sex, ['all', 'Mężczyzna', 'Kobieta'])) {
+            Session::put('sex', $sex);
+        }
+        Session::put('min_league', $league);
+        return redirect('match/find');
+    }
     public function find_match(): View
     {
         /**
@@ -32,10 +47,18 @@ class MatchController
         $match = null;
         $score = INF;
 
+        $minLeague = Session::get('min_league');
+        $sex = Session::get('sex');
         foreach ($users as $matchCandidate) {
             $candidateProfile = $matchCandidate->profile;
             $userProfile = $user->profile;
             if (!($candidateProfile instanceof UserProfile) || !($userProfile instanceof UserProfile)) {
+                continue;
+            }
+            if ($sex && $sex != 'all' && $candidateProfile->sex != $sex) {
+                continue;
+            }
+            if ($minLeague && $candidateProfile->league < $minLeague) {
                 continue;
             }
             if ($matchCandidate->id != $user->id && !in_array($matchCandidate->id, $alreadyMatched)) {
@@ -56,12 +79,11 @@ class MatchController
         $user = Auth::user();
 
         $userMatches = $user->matches()->where('accepted', true)->get()->all();
+        $userMatched = $user->matchedBy()->where('accepted', true)->get()->all();
 
         array_walk($userMatches, function (&$item, $key) {
             $item = $item->match_id;
         });
-
-        $userMatched = $user->matchedBy()->where('accepted', true)->get()->all();
 
         array_walk($userMatched, function (&$item, $key) {
             $item = $item->user_id;
@@ -85,8 +107,28 @@ class MatchController
             'accept' => 'required'
         ]);
         $matchId = intval($request->input('matchId'));
-        $id = (int) Auth::id();
+        /**
+         * @var User $user
+         */
+        $user = Auth::user();
+        if (!($user instanceof User)) {
+            return abort(404);
+        }
+        $id = $user->id;
+        $match = User::find($matchId);
+        if (!($match instanceof User)) {
+            return abort(404);
+        }
         $this->add_match_to_db($id, $matchId, true);
+
+        $matchMatches = $match->matches()->where('accepted', true)->get()->all();
+        array_walk($matchMatches, function (&$item, $key) {
+            $item = $item->match_id;
+        });
+
+        if (in_array($user->id, $matchMatches)) {
+            return redirect('match/notification');
+        }
         return redirect('match/find');
     }
     public function deny_match(Request $request): RedirectResponse
@@ -110,5 +152,9 @@ class MatchController
             'accepted' => $accepted
         ]);
         DB::flushQueryLog();
+    }
+    public function notify(): View
+    {
+        return view('match.notification');
     }
 }
