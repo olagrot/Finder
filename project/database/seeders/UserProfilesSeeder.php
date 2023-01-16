@@ -38,12 +38,13 @@ class UserProfilesSeeder extends Seeder
         $seededUserId = $seededUser->id;
         if ($seededUserId) {
             DB::table('user_profiles')->insert([
-                'name' => 'Tim',
-                'surname' => 'Burton',
-                'favourite_number' => 45,
+                'name' => 'Patrick',
+                'surname' => 'Bateman',
+                'favourite_number' => 102,
                 'favourite_function' => "Euler's function",
-                'points' => 1,
-                'solved_riddles' => "3,",
+                'points' => 10,
+                'league' => 2,
+                'solved_riddles' => "1,2,3,4,5,6,7,8,9,10",
                 'description' => "Gorący matematyk z twojej okolicy ;)",
                 'sex' => 'Mężczyzna',
                 'user_id' => $seededUserId
@@ -56,13 +57,14 @@ class UserProfilesSeeder extends Seeder
         $seededUserId = $seededUser->id;
         if ($seededUserId) {
             DB::table('user_profiles')->insert([
-                'name' => 'Elenora',
-                'surname' => 'asd',
-                'favourite_number' => 11,
-                'favourite_function' => "Riemann's dzeta function",
-                'points' => 0,
-                'solved_riddles' => "",
-                'description' => "Błyskotliwa, szczególnie interesuję się analizą funckjonalną",
+                'name' => 'Anna',
+                'surname' => 'Jagiellonka',
+                'favourite_number' => 1586,
+                'favourite_function' => "Funkcja dzeta Riemanna",
+                'points' => 14,
+                'league' => 3,
+                'solved_riddles' => "1,2,3,4,5,6,7,8,9,10,11,12,13,14",
+                'description' => "Błyskotliwa, szczególnie interesuję się analizą funkcjonalną",
                 'sex' => 'Kobieta',
                 'user_id' => $seededUserId
             ]);
@@ -74,14 +76,14 @@ class UserProfilesSeeder extends Seeder
         $seededUserId = $seededUser->id;
         if ($seededUserId) {
             DB::table('user_profiles')->insert([
-                'name' => 'Anne',
-                'surname' => 'Mercedes',
+                'name' => 'Obelix',
+                'surname' => 'Gal',
                 'favourite_number' => 12,
-                'favourite_function' => 'birthday',
+                'favourite_function' => 'getDzik()',
                 'points' => 0,
                 'solved_riddles' => "",
-                'description' => "Kubek i pączek to to samo",
-                'sex' => 'Kobieta',
+                'description' => "Gdy byłem mały, wpadłem do kociołka z magicznym napojem. Lubię nosić menhiry, dziki i bić Rzymian. Jeśli dobrze to rozegrasz, pokażę Ci Idefixa.",
+                'sex' => 'Mężczyzna',
                 'user_id' => $seededUserId
             ]);
         }

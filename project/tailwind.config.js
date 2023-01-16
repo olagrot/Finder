@@ -18,10 +18,11 @@ module.exports = {
                 '120': '120px',
             },
             maxHeight: {
-                '300': '300px'
+                '450': '450px'
             },
             maxWidth: {
                 '300': '300px',
+                '450': '450px',
             },
             fontSize: {
                 's60': '60px',

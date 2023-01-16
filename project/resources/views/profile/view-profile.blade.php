@@ -40,11 +40,13 @@
                 <div class="table-cell w-1/2">
                     @if(file_exists($profileImagePath))
                         <div class="text-center flex items-center justify-center mt-8 mb-6">
-                            <img class="max-w-300 max-h-300" src="{{asset($profileImagePath)}}">
+                            <img class="max-w-450 rounded-md" src="{{asset($profileImagePath)}}">
                         </div>
                     @else
                         <div class="text-center">
+                            @if($userProfile->user_id == Auth::user()->id)
                             <div>Dodaj swoje zdjęcie profilowe w ustawieniach!</div>
+                            @endif
                             <div class="flex items-center justify-center mt-8 mb-6">
                                 <img class="mt-8" src="{{asset("assets/profileImages/image_default.jpg")}}">
                             </div>

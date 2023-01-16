@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LeagueHelper;
 use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Http\RedirectResponse;
@@ -69,7 +70,8 @@ class MatchController
                 }
             }
         }
-        return view('match.find', ['match' => $match, 'sex' => $sex, 'minLeague' => $minLeague]);
+        $matchLeague = $match && $match->profile && $match->profile instanceof UserProfile ? LeagueHelper::getLeague($match->profile->league) : "";
+        return view('match.find', ['matchLeague' => $matchLeague,'match' => $match, 'sex' => $sex, 'minLeague' => $minLeague]);
     }
     public function show_matches(): View
     {

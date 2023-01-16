@@ -37,7 +37,6 @@
             <select name="sex" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full">
                 <option value="Mężczyzna">Mężczyzna</option>
                 <option value="Kobieta" @if($userProfile->sex == "Kobieta") selected="selected" @endif>Kobieta</option>
-                <option value="Śmigłowiec bojowy" @if($userProfile->sex == "Śmigłowiec bojowy") selected="selected" @endif>Śmigłowiec bojowy</option>
                 <option value="Inna" @if($userProfile->sex == "Inna") selected="selected" @endif>Inna</option>
             </select>
         </div>
@@ -53,11 +52,11 @@
             <input class="form-control" id="user-picture" name="picture" type="file" accept="image/jpeg"/>
         </div>
         @if(file_exists($profileImagePath))
-        <div>
+        <div class="max-w-300 rounded-md">
             <img src="{{asset($profileImagePath)}}">
         </div>
         @else
-        <div>
+        <div class="max-w-300 rounded-md">
             <img src="{{asset("assets/profileImages/image_default.jpg")}}">
         </div>
         @endif

@@ -13,6 +13,5 @@ class Test00_HomepageCest
         $I->amOnPage('/');
 
         $I->seeInTitle('Finder');
-
     }
 }

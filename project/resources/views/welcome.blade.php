@@ -18,10 +18,10 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="buttom">Twoje konto</a>
                     @else
-                        <a href="{{ route('login') }}" class="buttom" >Zaloguj sie</a>
+                        <a href="{{ route('login') }}" class="buttom" >Zaloguj się</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="buttom" >Utworz konto</a>
+                            <a href="{{ route('register') }}" class="buttom" >Utwórz konto</a>
                         @endif
                     @endauth
                 </div>
@@ -37,7 +37,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">
                             <div class="flex items-center justify-center">
-                                <h3 class="text-main">Znajdz swoja pare!</h3>
+                                <h3 class="text-main">Znajdź swoją parę!</h3>
                             </div>
                             <div class="flex items-center justify-center mt-8 mb-6">
                                 <a href="{{ route('login') }}">
@@ -47,7 +47,7 @@
 
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                             <div class="flex items-center justify-center">
-                                <h3 class="text-main">Rozwiaz zagadke!</h3>
+                                <h3 class="text-main">Rozwiąż zagadkę!</h3>
                             </div>
                             <div class="flex items-center justify-center mt-8 mb-6">
                                 <a href="{{ route('riddles.index') }}">
@@ -67,7 +67,7 @@
                             </svg>
 
                             <a class="ml-1">
-                                Tylko tutaj znajdziesz swojego matematycznego swirka
+                                Tylko tutaj znajdziesz swojego matematycznego świrka
                             </a>
 
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-1 -mt-px w-5 h-5 text-gray-400">
@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Portal dla matematykow
+                        Portal dla matematyków
                     </div>
                 </div>
             </div>

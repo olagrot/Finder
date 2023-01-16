@@ -35,13 +35,14 @@
                 <div class="p-4 d-flex flex flex-col items-center space-y-4">
                     <h1 class="justify-center">Znaleziono matematyka!</h1>
                     @if(file_exists($match->imagePath()))
-                        <img class="max-w-300 max-h-300" src="{{asset($match->imagePath())}}">
+                        <img class="max-w-300 rounded-md" src="{{asset($match->imagePath())}}">
                     @else
-                        <img class="max-w-300 max-h-300" src="{{asset("assets/profileImages/image_default.jpg")}}">
+                        <img class="max-w-300 rounded-md" src="{{asset("assets/profileImages/image_default.jpg")}}">
                     @endif
                     <h2>{{$match->profile->name . ' ' . $match->profile->surname}}</h2>
                     <h2>{{$match->profile->sex}}</h2>
                     <h2>{{$match->profile->description}}</h2>
+                    <h2>{{$matchLeague}}</h2>
                     <div class="grid grid-cols-2 gap-3">
                         <div class="flex justify-center flex-col">
                             <h2>Ulubiona liczba</h2>

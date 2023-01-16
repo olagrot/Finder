@@ -26,16 +26,16 @@ class MatchCest
         $I->wantTo('test if filters are working');
         $I->amOnPage('/match/find');
         $I->see('Znaleziono matematyka!');
-        $I->see('Tim');
+        $I->see('Anna');
 
-        $I->selectOption('sex', 'Kobieta');
+        $I->selectOption('sex', 'Mężczyzna');
         $I->click('filter');
 
         $I->amOnPage('/match/find');
         $I->see('Znaleziono matematyka!');
-        $I->see('Anne');
+        $I->see('Patrick');
 
-        $I->selectOption('league', '3');
+        $I->selectOption('league', '4');
         $I->click('filter');
 
         $I->amOnPage('/match/find');
@@ -48,13 +48,13 @@ class MatchCest
         $I->wantTo('test if wrong match want be activated');
         $I->amOnPage('/match/find');
         $I->see('Znaleziono matematyka!');
-        $I->see('Tim');
+        $I->see('Anna');
         $I->click('accept');
 
         $I->wantTo('See match notification');
         $I->amOnPage('/match/find');
         $I->see('Znaleziono matematyka!');
-        $I->see('Anne');
+        $I->see('Patrick');
         $I->click('accept');
 
         $I->amOnPage('/match/notification');
@@ -64,9 +64,8 @@ class MatchCest
         $I->click('#go-to-pairs');
 
         $I->amOnPage('/match/show');
-        $I->dontSee('Tim');
-        $I->See('Anne Mercedes');
-        $I->See('anne.doe@gmail.com');
-        $I->dontSee('Elenora');
+        $I->dontSee('Anna');
+        $I->See('Patrick Bateman');
+        $I->See('tim.doe@gmail.com');
     }
 }
